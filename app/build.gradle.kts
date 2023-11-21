@@ -71,6 +71,7 @@ dependencies {
 //    Room
     //noinspection GradleDependency
     implementation("androidx.room:room-runtime:$roomVersion")
+    //noinspection GradleDependency
     annotationProcessor("androidx.room:room-compiler:$roomVersion")
 
     testImplementation("junit:junit:4.13.2")

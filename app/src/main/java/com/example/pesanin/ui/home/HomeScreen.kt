@@ -18,10 +18,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.pesanin.model.Kendaraan
+import com.example.pesanin.data.car.Car
 import com.example.pesanin.ui.theme.PesanInTheme
 import java.util.Date
 
@@ -62,7 +61,7 @@ fun GreetingPreview2() {
 @SuppressLint("ResourceType")
 @Composable
 private fun KendaraanItem(
-    item : Kendaraan, modifier: Modifier= Modifier
+    item : Car, modifier: Modifier= Modifier
 )
 {
     Card (
@@ -75,12 +74,12 @@ private fun KendaraanItem(
         ){
             Row {
                 Text(
-                    text = item.name,
+                    text = item.vehicleName,
                     style = MaterialTheme.typography.titleLarge
                 )
                 Spacer(Modifier.weight(1f))
                 Text(
-                    text = item.harga.toString(),
+                    text = item.price.toString(),
                     style = MaterialTheme.typography.titleMedium
                 )
             }
@@ -93,7 +92,7 @@ private fun KendaraanItem(
 fun KendaraanPreview() {
     PesanInTheme {
         KendaraanItem(
-            Kendaraan(1,"Toyota", Date(2020, 10, 13), "Hijau", 20000  )
+            Car(1, "Toyota", 10, Date(2020),"Hijau", 200000000, "", 4, "small" )
         )
     }
 }
