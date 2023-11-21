@@ -8,7 +8,6 @@ import androidx.room.PrimaryKey
 data class Selling(
     @ColumnInfo(name = "selling_id")
     @PrimaryKey val id : Int,
-    val name : String,
     val vehicleId : Int
 )
 

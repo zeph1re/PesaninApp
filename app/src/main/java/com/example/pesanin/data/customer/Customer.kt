@@ -15,4 +15,5 @@ data class Customer (
     val name: String,
     val username : String,
     val password : String,
+    val address : String,
 ) : Parcelable

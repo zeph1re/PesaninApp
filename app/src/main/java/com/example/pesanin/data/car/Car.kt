@@ -18,7 +18,7 @@ data class Car (
     override val quantity: Int,
     override val releaseYear: Date,
     override val color: String,
-    override val price: Int,
+    override val price: Long,
     val engine : String,
     val capacity : Int,
     val type : String

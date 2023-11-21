@@ -5,11 +5,16 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
@@ -58,20 +63,38 @@ fun GreetingPreview2() {
 }
 
 
-@SuppressLint("ResourceType")
 @Composable
-private fun KendaraanItem(
-    item : Car, modifier: Modifier= Modifier
-)
-{
-    Card (
-        modifier = modifier,
+fun listCard(
+    datalist : List<Car>
+) {
+    LazyColumn(
+        contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp)
+    )
+    {
+       items(datalist) { data ->
+           VehicleItem(item = data)
+       }
+        
+    }
+}
+
+
+
+
+@Composable
+private fun VehicleItem(
+    item: Car,
+    modifier: Modifier = Modifier
+) {
+    Card(
+        modifier = Modifier.padding(horizontal = 8.dp, vertical = 8.dp),
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
-    ){
-        Column (
-            modifier = Modifier.padding(dimensionResource(id = 20)),
-            verticalArrangement = Arrangement.spacedBy(dimensionResource(id = 8))
-        ){
+
+    ) {
+        Column(
+            modifier = Modifier.padding(16.dp),
+            verticalArrangement = Arrangement.spacedBy( 8.dp)
+        ) {
             Row {
                 Text(
                     text = item.vehicleName,
@@ -87,12 +110,12 @@ private fun KendaraanItem(
     }
 }
 
-@Preview (showBackground = true)
+@Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun KendaraanPreview() {
     PesanInTheme {
-        KendaraanItem(
-            Car(1, "Toyota", 10, Date(2020),"Hijau", 200000000, "", 4, "small" )
+        VehicleItem(
+            Car(1, "Toyota", 10, Date(2020), "Hijau", 200000000, "V8", 4, "small")
         )
     }
 }
