@@ -54,6 +54,7 @@ android {
 dependencies {
     implementation(platform("androidx.compose:compose-bom:2023.03.00"))
     implementation(platform("androidx.compose:compose-bom:2023.03.00"))
+    implementation("androidx.navigation:navigation-runtime-ktx:2.7.5")
     androidTestImplementation(platform("androidx.compose:compose-bom:2023.03.00"))
     androidTestImplementation(platform("androidx.compose:compose-bom:2023.03.00"))
     val roomVersion = "2.5.0"
@@ -75,6 +76,10 @@ dependencies {
     implementation("androidx.room:room-runtime:$roomVersion")
     //noinspection GradleDependency
     annotationProcessor("androidx.room:room-compiler:$roomVersion")
+
+//    Navigation
+    val nav_version = "2.7.5"
+    implementation("androidx.navigation:navigation-compose:$nav_version")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")

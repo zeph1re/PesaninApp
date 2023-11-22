@@ -1,17 +1,15 @@
 package com.example.pesanin.ui.home
 
-import android.annotation.SuppressLint
+import Motor
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -22,7 +20,6 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.pesanin.data.car.Car
@@ -39,83 +36,21 @@ class HomeScreen : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Greeting2("Android")
+
                 }
             }
         }
     }
 }
 
-@Composable
-fun Greeting2(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
 @Preview(showBackground = true)
-@Composable
-fun GreetingPreview2() {
-    PesanInTheme {
-        Greeting2("Android")
-    }
-}
-
-
-@Composable
-fun listCard(
-    datalist : List<Car>
-) {
-    LazyColumn(
-        contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp)
-    )
-    {
-       items(datalist) { data ->
-           VehicleItem(item = data)
-       }
-        
-    }
-}
-
-
-
-
-@Composable
-private fun VehicleItem(
-    item: Car,
-    modifier: Modifier = Modifier
-) {
-    Card(
-        modifier = Modifier.padding(horizontal = 8.dp, vertical = 8.dp),
-        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
-
-    ) {
-        Column(
-            modifier = Modifier.padding(16.dp),
-            verticalArrangement = Arrangement.spacedBy( 8.dp)
-        ) {
-            Row {
-                Text(
-                    text = item.vehicleName,
-                    style = MaterialTheme.typography.titleLarge
-                )
-                Spacer(Modifier.weight(1f))
-                Text(
-                    text = item.price.toString(),
-                    style = MaterialTheme.typography.titleMedium
-                )
-            }
-        }
-    }
-}
-
-@Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun KendaraanPreview() {
     PesanInTheme {
-        VehicleItem(
-            Car(1, "Toyota", 10, Date(2020), "Hijau", 200000000, "V8", 4, "small")
-        )
+//        CarItem(
+//            Car(1, "Toyota Supra", 10, Date(2020), "Hijau", 200000000, "V8", 4, "Small")
+//        )
+        
+//        MotorItem(Motor(1, "Supra Fit", 5, Date(2010), "Black", 10000000, "V2", "Hard", "Smooth"))
     }
 }
