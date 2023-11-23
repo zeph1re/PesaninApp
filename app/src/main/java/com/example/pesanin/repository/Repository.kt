@@ -2,6 +2,7 @@ package com.example.pesanin.repository
 
 import CarDao
 import com.example.pesanin.data.MotorDao
+import com.example.pesanin.data.car.Car
 import com.example.pesanin.data.selling.SellingDao
 
 class Repository (
@@ -20,6 +21,12 @@ class Repository (
     fun getAllMotor () {
         motorDao.getAllMotor()
     }
+
+    suspend fun addCar(car: Car) {
+        carDao.insertCar(car)
+    }
+
+
 
 
 

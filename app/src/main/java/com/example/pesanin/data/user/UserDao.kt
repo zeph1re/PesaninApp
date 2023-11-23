@@ -8,15 +8,14 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface UserDao {
-
     @Insert
     fun registerUser(user : User)
 
     @Update
     fun updateUser (user: User)
 
-    @Query ("SELECT * FROM user WHERE username = :username")
-    fun getUser(username: String ) : Flow<User>
+    @Query ("SELECT * FROM user WHERE username = :username AND password = :password")
+    fun loginUser(username: String, password: String ) : Flow<User>
 
 
 

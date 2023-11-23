@@ -7,10 +7,11 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.pesanin.data.car.Car
-import com.example.pesanin.data.user.UserDao
 import com.example.pesanin.data.selling.Selling
 import com.example.pesanin.data.selling.SellingDao
 import com.example.pesanin.data.user.User
+import com.example.pesanin.data.user.UserDao
+
 
 @Database(
     entities = [Car::class, Motor::class, Selling::class, User::class],
@@ -26,7 +27,7 @@ abstract class SellingVehicleDatabase() : RoomDatabase() {
         @Volatile
         private var Instance: SellingVehicleDatabase? = null
 
-        fun getDatabase(context: Context): SellingVehicleDatabase {
+        fun getDatabase(context : Context): SellingVehicleDatabase {
             return Instance ?: synchronized(this) {
                 val instance = Room.databaseBuilder(context, SellingVehicleDatabase::class.java, "selling_vehicle_db")
                     .build()

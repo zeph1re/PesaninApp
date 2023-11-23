@@ -13,12 +13,12 @@
         android:theme="@style/Theme.PesanIn"
         tools:targetApi="31">
         <activity
-            android:name=".ui.detail.DetailScreen"
+            android:name=".ui.screen.DetailScreen"
             android:exported="false"
             android:label="@string/title_activity_detail_screen"
             android:theme="@style/Theme.PesanIn" />
         <activity
-            android:name=".ui.home.HomeScreen"
+            android:name=".ui.screen.home.HomeScreen"
             android:exported="false"
             android:label="@string/title_activity_home_screen"
             android:theme="@style/Theme.PesanIn" />

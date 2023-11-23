@@ -12,7 +12,7 @@ import java.util.Date
 
 @Composable
 fun CarList(
-    datalist : List<Car>
+    datalist: List<Car>
 ) {
     LazyColumn(
         contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp)
