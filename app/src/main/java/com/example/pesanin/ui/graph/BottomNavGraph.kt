@@ -6,6 +6,8 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
+import com.example.pesanin.ui.screen.AddCarScreen
+import com.example.pesanin.ui.screen.AddMotorScreen
 import com.example.pesanin.ui.screen.DetailScreen
 import com.example.pesanin.ui.screen.HomeScreen
 import com.example.pesanin.ui.screen.MotorListScreen
@@ -20,7 +22,8 @@ fun BottomNavGraph(navController: NavHostController, viewModel: HomeViewModel) {
         startDestination = NavScreen.Home.route
     ) {
         composable(route = BottomNavScreen.Home.route) {
-            HomeScreen(viewModel)
+            HomeScreen(viewModel, onNavigate = { id ->
+                navController.navigate(route = "${NavScreen.Detail.route}?id=$id")})
         }
 
         composable(
@@ -40,6 +43,15 @@ fun BottomNavGraph(navController: NavHostController, viewModel: HomeViewModel) {
         }
 
         detailsNavGraph(navController = navController)
+
+        composable(route = NavScreen.CarAddScreen.route) {
+            AddCarScreen(viewModel = viewModel)
+        }
+
+        composable(route = NavScreen.MotorAddScreen.route) {
+            AddMotorScreen()
+        }
+
     }
 }
 

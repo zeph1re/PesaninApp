@@ -14,6 +14,16 @@ sealed class NavScreen (
         title = "detail"
     )
 
+    object CarAddScreen : NavScreen(
+        route = "addcar",
+        title = "addcar"
+    )
+
+    object MotorAddScreen : NavScreen(
+        route = "addmotor",
+        title = "addmotor"
+    )
+
 
 
 

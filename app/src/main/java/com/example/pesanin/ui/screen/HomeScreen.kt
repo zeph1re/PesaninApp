@@ -21,7 +21,7 @@ import com.example.pesanin.viewmodel.HomeViewModel
 
 
 @Composable
-fun HomeScreen(viewModel: HomeViewModel) {
+fun HomeScreen(viewModel: HomeViewModel, onNavigate: (Int) -> Unit) {
 
     val datalist = viewModel.datalist.datalist
 

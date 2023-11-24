@@ -25,12 +25,16 @@ abstract class SellingVehicleDatabase() : RoomDatabase() {
         private var Instance: SellingVehicleDatabase? = null
 
         fun getDatabase(context : Context): SellingVehicleDatabase {
-            return Instance ?: synchronized(this) {
+            return Instance ?: synchronized(SellingVehicleDatabase::class) {
                 val instance = Room.databaseBuilder(context, SellingVehicleDatabase::class.java, "selling_vehicle_db")
                     .build()
                     Instance = instance
                 return instance
             }
+        }
+
+        fun destroyInstance() {
+            Instance = null
         }
     }
 }
