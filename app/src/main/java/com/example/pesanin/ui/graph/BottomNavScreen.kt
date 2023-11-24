@@ -2,7 +2,6 @@ package com.example.pesanin.ui.graph
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
-import androidx.compose.material.icons.filled.AddCircle
 import androidx.compose.material.icons.filled.Build
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.ShoppingCart
@@ -18,11 +17,6 @@ sealed class BottomNavScreen (
         route = "home",
         title = "home",
         icon = Icons.Default.Home
-    )
-    object Car : BottomNavScreen(
-        route = "car",
-        title = "car",
-        icon = Icons.Filled.AddCircle
     )
     object Motor : BottomNavScreen(
         route = "motor",

@@ -11,7 +11,7 @@ interface CarDao {
     suspend fun insertCar (car: Car)
 
     @Update
-    suspend fun updateCar (car: Car)
+    suspend fun updateCar (quantity: Int)
 
     @Delete
     suspend fun deleteCar (car : Car)

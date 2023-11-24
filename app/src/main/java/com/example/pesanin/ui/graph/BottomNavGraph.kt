@@ -4,7 +4,6 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.example.pesanin.ui.screen.CarListScreen
 import com.example.pesanin.ui.screen.HomeScreen
 import com.example.pesanin.ui.screen.MotorListScreen
 import com.example.pesanin.ui.screen.ProfileScreen
@@ -18,12 +17,6 @@ fun BottomNavGraph(navController: NavHostController) {
     ) {
         composable(route = BottomNavScreen.Home.route) {
             HomeScreen()
-        }
-
-        composable(
-            route = BottomNavScreen.Car.route
-        ) {
-            CarListScreen()
         }
 
         composable(

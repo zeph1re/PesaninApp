@@ -46,7 +46,6 @@ fun App(
 fun BottomBar(navController: NavHostController) {
     val screens = listOf(
         BottomNavScreen.Home,
-        BottomNavScreen.Car,
         BottomNavScreen.Motor,
         BottomNavScreen.Selling,
         BottomNavScreen.Profile,
