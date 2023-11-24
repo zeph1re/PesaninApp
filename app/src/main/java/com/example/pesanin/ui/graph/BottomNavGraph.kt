@@ -1,22 +1,26 @@
 package com.example.pesanin.ui.graph
 
 import androidx.compose.runtime.Composable
+import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.navigation
+import com.example.pesanin.ui.screen.DetailScreen
 import com.example.pesanin.ui.screen.HomeScreen
 import com.example.pesanin.ui.screen.MotorListScreen
 import com.example.pesanin.ui.screen.ProfileScreen
 import com.example.pesanin.ui.screen.SellingScreen
+import com.example.pesanin.viewmodel.HomeViewModel
 
 @Composable
-fun BottomNavGraph(navController: NavHostController) {
+fun BottomNavGraph(navController: NavHostController, viewModel: HomeViewModel) {
     NavHost(
         navController = navController,
         startDestination = NavScreen.Home.route
     ) {
         composable(route = BottomNavScreen.Home.route) {
-            HomeScreen()
+            HomeScreen(viewModel)
         }
 
         composable(
@@ -35,27 +39,20 @@ fun BottomNavGraph(navController: NavHostController) {
             ProfileScreen()
         }
 
-//        detailsNavGraph(navController = navController)
+        detailsNavGraph(navController = navController)
     }
 }
 
-//fun NavGraphBuilder.detailsNavGraph(navController: NavHostController) {
-//    navigation(
-//        route = NavScreen.Detail.route,
-//        startDestination = DetailsScreen.Information.route
-//    ) {
-//        composable(route = DetailsScreen.Information.route) {
-//            ScreenContent(name = DetailsScreen.Information.route) {
-//                navController.navigate(DetailsScreen.Overview.route)
+fun NavGraphBuilder.detailsNavGraph(navController: NavHostController) {
+    navigation(
+        route = NavScreen.Detail.route,
+        startDestination = NavScreen.Detail.route
+    ) {
+        composable(route = NavScreen.Detail.route) {
+            DetailScreen()
+//            {
+//                navController.navigate(BottomNavScreen.Selling.route)
 //            }
-//        }
-//        composable(route = DetailsScreen.Overview.route) {
-//            ScreenContent(name = DetailsScreen.Overview.route) {
-//                navController.popBackStack(
-//                    route = DetailsScreen.Information.route,
-//                    inclusive = false
-//                )
-//            }
-//        }
-//    }
-//}
+        }
+    }
+}

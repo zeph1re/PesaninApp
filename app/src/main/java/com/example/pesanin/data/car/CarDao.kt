@@ -17,7 +17,7 @@ interface CarDao {
     suspend fun deleteCar (car : Car)
 
     @Query("SELECT * FROM car")
-    fun getAllCar () : Flow<List<Car>>
+    fun getAllCar () : List<Car>
 
     @Query("SELECT * FROM car where car_id = :id")
     fun getCar (id : Int) : Flow<Car>

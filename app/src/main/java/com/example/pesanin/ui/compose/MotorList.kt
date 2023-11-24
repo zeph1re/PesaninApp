@@ -9,7 +9,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.pesanin.ui.theme.PesanInTheme
-import java.util.Date
 
 @Composable
 fun MotorList(
@@ -29,9 +28,9 @@ fun MotorList(
 @Composable
 fun listMotorPreview() {
     val motorbikeLists = listOf(
-        Motorbike(1, "Supra Fit", 5, Date(2010), "Black", 10000000, "V2", "Hard", "Smooth"),
-        Motorbike(1, "Supra Fit", 5, Date(2010), "Black", 10000000, "V2", "Hard", "Smooth"),
-        Motorbike(1, "Supra Fit", 5, Date(2010), "Black", 10000000, "V2", "Hard", "Smooth"),
+        Motorbike(1, "Supra Fit", 5, 2010, "Black", 10000000, "V2", "Hard", "Smooth"),
+        Motorbike(1, "Supra Fit", 5, 2010, "Black", 10000000, "V2", "Hard", "Smooth"),
+        Motorbike(1, "Supra Fit", 5, 2010, "Black", 10000000, "V2", "Hard", "Smooth"),
         )
 
     PesanInTheme {

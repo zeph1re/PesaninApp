@@ -10,7 +10,9 @@ import com.example.pesanin.repository.Repository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class HomeViewModel (private val repository : Repository) : ViewModel() {
+class HomeViewModel(
+    private val repository: Repository
+) : ViewModel() {
 
 //    Car Section
     var vehicleName by  mutableStateOf("")
@@ -62,12 +64,14 @@ class HomeViewModel (private val repository : Repository) : ViewModel() {
     }
 
 
+    var datalist by mutableStateOf(HomeState())
+    private set
     init {
         getAllCar()
     }
 
     fun getAllCar() {
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.IO) {
             repository.getAllCar()
         }
     }
@@ -83,6 +87,6 @@ class HomeViewModel (private val repository : Repository) : ViewModel() {
 //Motor
 
 
-//data class HomeState(
-//    val itemChecked:Boolean = false
-//)
+data class HomeState (
+    val datalist : List<Car> = emptyList(),
+)

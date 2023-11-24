@@ -15,30 +15,27 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.pesanin.data.car.Car
 import com.example.pesanin.ui.compose.CarList
-import java.util.Date
+import com.example.pesanin.viewmodel.HomeViewModel
 
 
 @Composable
-fun HomeScreen() {
+fun HomeScreen(viewModel: HomeViewModel) {
 
-//    val application : Context
-//    val viewModel = ViewModelProvider(application)[HomeViewModel::class.java]
+    val datalist = viewModel.datalist.datalist
 
-    val datalist = mutableListOf<Car>(
-        Car(1, "Toyota Supra", 10, Date(2020), "Hijau", 200000000, "V8", 4, "Small"),
-        Car(2, "Toyota", 10, Date(2020), "Hijau", 200000000, "V8", 4, "Small"),
-        Car(3, "Honda", 10, Date(2020), "Hijau", 200000000, "V8", 4, "Small"),
-        Car(4, "Toyota Supra", 10, Date(2020), "Hijau", 200000000, "V8", 4, "Small"),
-        Car(5, "Toyota", 10, Date(2020), "Hijau", 200000000, "V8", 4, "Small"),
-        Car(6, "Honda", 10, Date(2020), "Hijau", 200000000, "V8", 4, "Small"),
-        Car(7, "Toyota Supra", 10, Date(2020), "Hijau", 200000000, "V8", 4, "Small"),
-        Car(8, "Toyota", 10, Date(2020), "Hijau", 200000000, "V8", 4, "Small"),
-        Car(9, "Honda", 10, Date(2020), "Hijau", 200000000, "V8", 4, "Small")
-    )
+//    val datalist = mutableListOf<Car>(
+//        Car(1, "Toyota Supra", 10, 2020, "Hijau", 200000000, "V8", 4, "Small"),
+//        Car(2, "Toyota", 10, 2020, "Hijau", 200000000, "V8", 4, "Small"),
+//        Car(3, "Honda", 10, 2020, "Hijau", 200000000, "V8", 4, "Small"),
+//        Car(4, "Toyota Supra", 10, 2020, "Hijau", 200000000, "V8", 4, "Small"),
+//        Car(5, "Toyota", 10, 2020, "Hijau", 200000000, "V8", 4, "Small"),
+//        Car(6, "Honda", 10, 2020, "Hijau", 200000000, "V8", 4, "Small"),
+//        Car(7, "Toyota Supra", 10,2020, "Hijau", 200000000, "V8", 4, "Small"),
+//        Car(8, "Toyota", 10, 2020, "Hijau", 200000000, "V8", 4, "Small"),
+//        Car(9, "Honda", 10, 2020, "Hijau", 200000000, "V8", 4, "Small")
+//    )
 
     Box(
         modifier = Modifier
@@ -61,12 +58,6 @@ fun HomeScreen() {
 
         }
     }
-}
-
-@Composable
-@Preview (showSystemUi = true)
-fun HomeScreenPreview() {
-    HomeScreen()
 }
 
 

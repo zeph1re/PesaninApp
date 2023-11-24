@@ -16,7 +16,7 @@ class Repository (
 
 //    Car
 //    Get all car
-    fun getAllCar() : Flow<List<Car>> {
+    fun getAllCar() : List<Car> {
         return carDao.getAllCar()
     }
 

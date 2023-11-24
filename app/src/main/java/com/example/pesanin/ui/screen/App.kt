@@ -18,26 +18,19 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.pesanin.ui.graph.BottomNavGraph
 import com.example.pesanin.ui.graph.BottomNavScreen
+import com.example.pesanin.viewmodel.HomeViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-fun App(
-//    homeFactory: HomeViewModelFactory,
-//    authFactory : AuthViewModelFactory,
-) {
-
-//    val homeViewModel : HomeViewModel = viewModel(factory = homeFactory)
-//    val authViewModel : AuthViewModel = viewModel(factory = authFactory)
-
-
+fun App( viewModel: HomeViewModel) {
     val navController: NavHostController = rememberNavController()
 
     Scaffold(
         bottomBar = { BottomBar(navController = navController) }
     ) {
         BottomNavGraph(navController = navController,
-//            homeViewModel = homeViewModel, authViewModel = authViewModel
+            viewModel = viewModel
         )
     }
 }
