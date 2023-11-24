@@ -3,6 +3,8 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("kotlin-parcelize")
 
+
+
 }
 
 android {
@@ -72,13 +74,15 @@ dependencies {
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation(platform("androidx.compose:compose-bom:2023.03.00"))
 //    Room
-    //noinspection GradleDependency
+
     implementation("androidx.room:room-runtime:$roomVersion")
-    //noinspection GradleDependency
+
     annotationProcessor("androidx.room:room-compiler:$roomVersion")
 
+
+
 //    ViewModel
-    implementation ("androidx.lifecycle:lifecycle-viewmodel-compose:1.0.0-alpha07")
+    implementation ("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0-rc01")
 
 //    Navigation
     val nav_version = "2.7.5"

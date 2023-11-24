@@ -1,6 +1,6 @@
 package com.example.pesanin.ui.compose
 
-import Motor
+import Motorbike
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.lazy.LazyColumn
@@ -13,7 +13,7 @@ import java.util.Date
 
 @Composable
 fun MotorList(
-    dataList: List<Motor>
+    dataList: List<Motorbike>
 ) {
     LazyColumn(
         contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp),
@@ -28,14 +28,14 @@ fun MotorList(
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun listMotorPreview() {
-    val motorList = listOf(
-        Motor(1, "Supra Fit", 5, Date(2010), "Black", 10000000, "V2", "Hard", "Smooth"),
-        Motor(1, "Supra Fit", 5, Date(2010), "Black", 10000000, "V2", "Hard", "Smooth"),
-        Motor(1, "Supra Fit", 5, Date(2010), "Black", 10000000, "V2", "Hard", "Smooth"),
+    val motorbikeLists = listOf(
+        Motorbike(1, "Supra Fit", 5, Date(2010), "Black", 10000000, "V2", "Hard", "Smooth"),
+        Motorbike(1, "Supra Fit", 5, Date(2010), "Black", 10000000, "V2", "Hard", "Smooth"),
+        Motorbike(1, "Supra Fit", 5, Date(2010), "Black", 10000000, "V2", "Hard", "Smooth"),
         )
 
     PesanInTheme {
-        MotorList(dataList = motorList)
+        MotorList(dataList = motorbikeLists)
     }
 }
 

@@ -1,6 +1,6 @@
 package com.example.pesanin.data
 
-import Motor
+import Motorbike
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
@@ -14,17 +14,17 @@ import kotlinx.coroutines.flow.Flow
 interface MotorDao {
 
     @Insert (onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertMotor (motor: Motor)
+    suspend fun insertMotor (motorbike: Motorbike)
 
     @Update
-    suspend fun updateMotor (motor: Motor)
+    suspend fun updateMotor (motorbike: Motorbike)
 
     @Delete
-    suspend fun deleteMotor (motor : Motor)
+    suspend fun deleteMotor (motorbike : Motorbike)
 
     @Query ("SELECT * FROM motor")
-    fun getAllMotor () : Flow<List<Motor>>
+    fun getAllMotor () : Flow<List<Motorbike>>
 
     @Query ("SELECT * FROM motor where motor_id = :id")
-    fun getMotor (id : Int) : Flow<Motor>
+    fun getMotor (id : Int) : Flow<Motorbike>
 }

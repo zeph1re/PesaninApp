@@ -1,6 +1,6 @@
 package com.example.pesanin.ui.compose
 
-import Motor
+import Motorbike
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -50,7 +50,7 @@ fun CarItemCard(
 
 @Composable
 fun MotorItemCard(
-    item: Motor
+    item: Motorbike
 ) {
     Card(
         modifier = Modifier.padding(horizontal = 8.dp, vertical = 8.dp),

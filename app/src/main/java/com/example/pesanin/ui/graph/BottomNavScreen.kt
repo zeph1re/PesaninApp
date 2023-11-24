@@ -8,33 +8,33 @@ import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.ShoppingCart
 import androidx.compose.ui.graphics.vector.ImageVector
 
-sealed class BottomBarScreen (
+sealed class BottomNavScreen (
     val route : String,
     val title : String,
     val icon : ImageVector
 
 ) {
-    object Home : BottomBarScreen(
+    object Home : BottomNavScreen(
         route = "home",
         title = "home",
         icon = Icons.Default.Home
     )
-    object Car : BottomBarScreen(
+    object Car : BottomNavScreen(
         route = "car",
         title = "car",
         icon = Icons.Filled.AddCircle
     )
-    object Motor : BottomBarScreen(
+    object Motor : BottomNavScreen(
         route = "motor",
         title = "motor",
         icon = Icons.Filled.Build
     )
-    object Selling : BottomBarScreen(
+    object Selling : BottomNavScreen(
         route = "selling",
         title = "selling",
         icon = Icons.Default.ShoppingCart
     )
-    object Profile : BottomBarScreen(
+    object Profile : BottomNavScreen(
         route = "profile",
         title = "profile",
         icon = Icons.Default.AccountCircle

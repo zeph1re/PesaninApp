@@ -8,7 +8,7 @@ import java.util.Date
 
 @Parcelize
 @Entity(tableName = "motor")
-data class Motor (
+data class Motorbike (
     @ColumnInfo(name = "motor_id")
     @PrimaryKey(autoGenerate = true)
     override val id: Int,
@@ -21,4 +21,6 @@ data class Motor (
     val suspensionType : String,
     val transmisionType : String
 ) : Vehicle(id, vehicleName, releaseYear, quantity, color, price) , Parcelable
+
+
 

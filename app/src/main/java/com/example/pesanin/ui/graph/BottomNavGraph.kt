@@ -8,35 +8,37 @@ import com.example.pesanin.ui.screen.CarListScreen
 import com.example.pesanin.ui.screen.HomeScreen
 import com.example.pesanin.ui.screen.MotorListScreen
 import com.example.pesanin.ui.screen.ProfileScreen
+import com.example.pesanin.ui.screen.SellingScreen
 
 @Composable
-fun HomeNavGraph(navController: NavHostController) {
+fun BottomNavGraph(navController: NavHostController) {
     NavHost(
         navController = navController,
         startDestination = NavScreen.Home.route
     ) {
-        composable(route = BottomBarScreen.Home.route) {
-            HomeScreen(
-                navHostController = navController
-//                name = BottomBarScreen.Home.route,
-//                onClick = {
-//                    navController.navigate(NavScreen.Detail.route
-            )
+        composable(route = BottomNavScreen.Home.route) {
+            HomeScreen()
         }
 
         composable(
-            route = BottomBarScreen.Car.route
+            route = BottomNavScreen.Car.route
         ) {
             CarListScreen()
         }
 
         composable(
-            route = BottomBarScreen.Motor.route
+            route = BottomNavScreen.Motor.route
         ) {
             MotorListScreen()
         }
 
-        composable(route = BottomBarScreen.Profile.route) {
+        composable(
+            route = BottomNavScreen.Selling.route
+        ) {
+            SellingScreen()
+        }
+
+        composable(route = BottomNavScreen.Profile.route) {
             ProfileScreen()
         }
 
@@ -64,8 +66,3 @@ fun HomeNavGraph(navController: NavHostController) {
 //        }
 //    }
 //}
-
-sealed class DetailsScreen(val route: String) {
-    object Information : DetailsScreen(route = "INFORMATION")
-    object Overview : DetailsScreen(route = "OVERVIEW")
-}
