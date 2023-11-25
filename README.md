@@ -354,7 +354,7 @@ user Interface that i have done
 src="assets/home_screen.jpeg"
 alt="Alt text"
 title="Optional title"
-style="display: inline-block; margin: 0 auto; max-width: 100px">
+style="display: inline-block; margin: 0 auto; max-width: 50px">
 ![Add Car Screen](assets/add_screen.jpeg)
 ![Selling Screen](assets/selling_screen.jpeg)
 
