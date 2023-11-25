@@ -19,9 +19,14 @@ import com.example.pesanin.viewmodel.HomeViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun AddCarScreen(viewModel: HomeViewModel) {
+fun AddCarScreen(
+    viewModel: HomeViewModel,
+    onAddButtonClick : () -> Unit
+) {
 
-    Box {
+    Box (
+        contentAlignment = Alignment.Center
+    ) {
         Column(
             modifier = Modifier.padding(8.dp),
             horizontalAlignment = Alignment.CenterHorizontally
@@ -80,11 +85,9 @@ fun AddCarScreen(viewModel: HomeViewModel) {
             )
             Spacer(modifier = Modifier.height(8.dp))
             Button(
-                onClick = {
-                    // Trigger the login function in the ViewModel
-//                    authViewModel.login(email, password)
-                          viewModel.insertCar()
-                },
+                onClick = onAddButtonClick
+//                          viewModel.insertCar()
+                ,
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(50.dp)

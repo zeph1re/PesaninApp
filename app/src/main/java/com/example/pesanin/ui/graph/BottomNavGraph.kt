@@ -1,7 +1,7 @@
 package com.example.pesanin.ui.graph
 
 import androidx.compose.runtime.Composable
-import androidx.navigation.NavGraphBuilder
+import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -19,19 +19,64 @@ import com.example.pesanin.viewmodel.HomeViewModel
 fun BottomNavGraph(navController: NavHostController, viewModel: HomeViewModel) {
     NavHost(
         navController = navController,
-        startDestination = NavScreen.Home.route
+        startDestination = BottomNavScreen.Home.route
     ) {
-        composable(route = BottomNavScreen.Home.route) {
-            HomeScreen(viewModel, onNavigate = { id ->
-                navController.navigate(route = "${NavScreen.Detail.route}?id=$id")
-            })
+
+        navigation(
+            route = BottomNavScreen.Home.route,
+            startDestination = BottomNavScreen.Home.CarList.route
+        ) {
+            composable(route = BottomNavScreen.Home.CarList.route) {
+                HomeScreen(
+                    modifier = Modifier,
+                    viewModel,
+                    onAddCarClick = {
+                        navController.navigate(
+                            NavScreen.CarAddScreen.route
+                        )
+                    },
+                    onCarClick = {
+                        navController.navigate(
+                            NavScreen.CarDetail.createRoute(
+                                carId = it.id.toInt()
+                            )
+                        )
+                    }
+                )
+            }
+
+            composable(route = NavScreen.CarDetail.route) {
+                DetailScreen(id = id, viewModel = viewModel)
+            }
+
+            composable(route = NavScreen.CarAddScreen.route) {
+                AddCarScreen(viewModel = viewModel, onAddButtonClick = {
+
+                    navController.navigate(
+                        BottomNavScreen.Selling.route
+                    )
+
+                })
+            }
         }
 
-        composable(
-            route = BottomNavScreen.Motor.route
+        navigation(
+            route = BottomNavScreen.Motor.route,
+            startDestination = BottomNavScreen.Motor.MotorList.route
         ) {
-            MotorListScreen()
+            composable(
+                route = NavScreen.MotorList.route
+            ) {
+                MotorListScreen()
+            }
+
+            composable(
+                route = NavScreen.MotorAddScreen.route
+            ) {
+                AddMotorScreen()
+            }
         }
+
 
         composable(
             route = BottomNavScreen.Selling.route
@@ -41,33 +86,6 @@ fun BottomNavGraph(navController: NavHostController, viewModel: HomeViewModel) {
 
         composable(route = BottomNavScreen.Profile.route) {
             ProfileScreen()
-        }
-
-        detailsNavGraph(navController = navController, viewModel)
-
-        composable(route = NavScreen.CarAddScreen.route) {
-            AddCarScreen(viewModel = viewModel)
-        }
-
-        composable(route = NavScreen.MotorAddScreen.route) {
-            AddMotorScreen()
-        }
-
-    }
-}
-
-fun NavGraphBuilder.detailsNavGraph(navController: NavHostController, viewModel: HomeViewModel) {
-    navigation(
-        route = NavScreen.Home.route,
-        startDestination = NavScreen.Home.route
-    ) {
-
-
-        composable(route = NavScreen.Detail.route) {
-            DetailScreen(id, viewModel)
-//            {
-//                navController.navigate(BottomNavScreen.Selling.route)
-//            }
         }
     }
 }

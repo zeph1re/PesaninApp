@@ -1,30 +1,47 @@
 package com.example.pesanin.ui.graph
 
-sealed class NavScreen (
-    val route : String,
-    val title : String,
+import androidx.navigation.NamedNavArgument
+import androidx.navigation.NavType
+import androidx.navigation.navArgument
+
+sealed class NavScreen(
+    val route: String,
+    navArguments: List<NamedNavArgument> = emptyList(),
 ) {
-    object Home : NavScreen(
-        route = "home",
-        title = "home",
+
+    object CarList : NavScreen(
+        route = "car_list",
     )
 
-    object Detail : NavScreen(
-        route = "detail",
-        title = "detail"
-    )
+    object CarDetail : NavScreen(
+        route = "detail/{carId}",
+        navArguments = listOf(navArgument("carId") {
+            type = NavType.IntType
+        })
+    ) {
+        fun createRoute(carId: Int) = "detail/${carId}"
+    }
 
     object CarAddScreen : NavScreen(
-        route = "addcar",
-        title = "addcar"
+        route = "add_car",
+
+        )
+
+
+    object MotorList : NavScreen(
+        route = "motor_list"
     )
+
+    object MotorDetail : NavScreen(
+        route = "detail/{carId}",
+        navArguments = listOf(navArgument("carId") {
+            type = NavType.IntType
+        })
+    ) {
+        fun createRoute(carId: Int) = "detail/${carId}"
+    }
 
     object MotorAddScreen : NavScreen(
-        route = "addmotor",
-        title = "addmotor"
+        route = "add_motor"
     )
-
-
-
-
 }
