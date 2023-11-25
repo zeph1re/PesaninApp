@@ -53,7 +53,7 @@ fun HomeScreen(viewModel: HomeViewModel, onNavigate: (Int) -> Unit) {
         FloatingActionButton(
             modifier = Modifier.align(Alignment.TopEnd).padding(16.dp),
             containerColor = Color.DarkGray,
-            onClick = { /*TODO*/ }) {
+            onClick = { onNavigate.invoke(-1) }) {
             Text(text = "Add Car", color = Color.White)
 
         }

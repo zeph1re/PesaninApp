@@ -1,15 +1,14 @@
 package com.example.pesanin.data
 
-import CarDao
-import Motorbike
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.pesanin.data.car.Car
+import com.example.pesanin.data.car.CarDao
+import com.example.pesanin.data.motor.Motorbike
 import com.example.pesanin.data.selling.Selling
 import com.example.pesanin.data.selling.SellingDao
-
 
 @Database(
     entities = [Car::class, Motorbike::class, Selling::class],
@@ -27,6 +26,7 @@ abstract class SellingVehicleDatabase() : RoomDatabase() {
         fun getDatabase(context : Context): SellingVehicleDatabase {
             return Instance ?: synchronized(SellingVehicleDatabase::class) {
                 val instance = Room.databaseBuilder(context, SellingVehicleDatabase::class.java, "selling_vehicle_db")
+                    .fallbackToDestructiveMigration()
                     .build()
                     Instance = instance
                 return instance

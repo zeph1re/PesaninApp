@@ -2,9 +2,7 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("kotlin-parcelize")
-
-
-
+    id("com.google.devtools.ksp")
 }
 
 android {
@@ -44,7 +42,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.3"
+        kotlinCompilerExtensionVersion = "1.5.4"
     }
     packaging {
         resources {
@@ -59,7 +57,7 @@ dependencies {
     implementation("androidx.navigation:navigation-runtime-ktx:2.7.5")
    
     androidTestImplementation(platform("androidx.compose:compose-bom:2023.03.00"))
-    val roomVersion = "2.5.0"
+
 
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
@@ -74,12 +72,13 @@ dependencies {
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation(platform("androidx.compose:compose-bom:2023.03.00"))
 //    Room
-
+    val roomVersion = "2.5.0"
     implementation("androidx.room:room-runtime:$roomVersion")
-
+//    kapt ("androidx.room:room-compiler:$roomVersion")
     annotationProcessor("androidx.room:room-compiler:$roomVersion")
+    ksp ("androidx.room:room-compiler:$roomVersion")
 
-
+    implementation ("androidx.room:room-ktx:2.6.0")
 
 //    ViewModel
     implementation ("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0-rc01")

@@ -1,6 +1,6 @@
 package com.example.pesanin.ui.compose
 
-import Motorbike
+
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -14,6 +14,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.pesanin.data.car.Car
+import com.example.pesanin.data.motor.Motorbike
 
 
 @Composable

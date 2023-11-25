@@ -23,7 +23,8 @@ fun BottomNavGraph(navController: NavHostController, viewModel: HomeViewModel) {
     ) {
         composable(route = BottomNavScreen.Home.route) {
             HomeScreen(viewModel, onNavigate = { id ->
-                navController.navigate(route = "${NavScreen.Detail.route}?id=$id")})
+                navController.navigate(route = "${NavScreen.Detail.route}?id=$id")
+            })
         }
 
         composable(
@@ -42,7 +43,7 @@ fun BottomNavGraph(navController: NavHostController, viewModel: HomeViewModel) {
             ProfileScreen()
         }
 
-        detailsNavGraph(navController = navController)
+        detailsNavGraph(navController = navController, viewModel)
 
         composable(route = NavScreen.CarAddScreen.route) {
             AddCarScreen(viewModel = viewModel)
@@ -55,13 +56,15 @@ fun BottomNavGraph(navController: NavHostController, viewModel: HomeViewModel) {
     }
 }
 
-fun NavGraphBuilder.detailsNavGraph(navController: NavHostController) {
+fun NavGraphBuilder.detailsNavGraph(navController: NavHostController, viewModel: HomeViewModel) {
     navigation(
-        route = NavScreen.Detail.route,
-        startDestination = NavScreen.Detail.route
+        route = NavScreen.Home.route,
+        startDestination = NavScreen.Home.route
     ) {
+
+
         composable(route = NavScreen.Detail.route) {
-            DetailScreen()
+            DetailScreen(id, viewModel)
 //            {
 //                navController.navigate(BottomNavScreen.Selling.route)
 //            }
