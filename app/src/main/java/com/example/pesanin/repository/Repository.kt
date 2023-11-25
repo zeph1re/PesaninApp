@@ -1,9 +1,10 @@
 package com.example.pesanin.repository
 
-import CarDao
-import Motorbike
+
 import com.example.pesanin.data.MotorDao
 import com.example.pesanin.data.car.Car
+import com.example.pesanin.data.car.CarDao
+import com.example.pesanin.data.motor.Motorbike
 import com.example.pesanin.data.selling.Selling
 import com.example.pesanin.data.selling.SellingDao
 import kotlinx.coroutines.flow.Flow
@@ -16,8 +17,12 @@ class Repository (
 
 //    Car
 //    Get all car
-    fun getAllCar() : List<Car> {
+    fun getAllCar() : Flow<List<Car>> {
         return carDao.getAllCar()
+    }
+
+    fun getCar(id:Int) : Flow<Car> {
+        return carDao.getCar(id)
     }
 
 //    Get all car

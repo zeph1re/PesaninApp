@@ -1,6 +1,6 @@
 package com.example.pesanin.ui.compose
 
-import Motorbike
+
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -8,19 +8,25 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.ElevatedCard
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.pesanin.data.car.Car
+import com.example.pesanin.data.motor.Motorbike
 
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CarItemCard(
-    item: Car
+    car: Car,
+    onCarClick : (Car) -> Unit
 ) {
-    Card(
+    ElevatedCard(
+        onClick = {onCarClick(car)},
         modifier = Modifier.padding(horizontal = 8.dp, vertical = 8.dp),
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
 
@@ -31,18 +37,18 @@ fun CarItemCard(
         ) {
             Row {
                 Text(
-                    text = item.vehicleName,
+                    text = car.vehicleName,
                     style = MaterialTheme.typography.titleLarge
                 )
                 Spacer(Modifier.weight(1f))
                 Text(
-                    text = item.price.toString(),
+                    text = car.price.toString(),
                     style = MaterialTheme.typography.titleMedium
                 )
             }
-            Text(text = "Engine ${item.engine}, Type: ${item.type}",
+            Text(text = "Engine ${car.engine}, Type: ${car.type}",
                 style = MaterialTheme.typography.bodySmall)
-            Text(text = "Stock: ${item.quantity}",
+            Text(text = "Stock: ${car.quantity}",
                 style = MaterialTheme.typography.bodyMedium)
         }
     }
@@ -50,7 +56,8 @@ fun CarItemCard(
 
 @Composable
 fun MotorItemCard(
-    item: Motorbike
+    motor: Motorbike,
+    onMotorClick : (Motorbike) -> Unit
 ) {
     Card(
         modifier = Modifier.padding(horizontal = 8.dp, vertical = 8.dp),
@@ -63,18 +70,18 @@ fun MotorItemCard(
         ) {
             Row {
                 Text(
-                    text = item.vehicleName,
+                    text = motor.vehicleName,
                     style = MaterialTheme.typography.titleLarge
                 )
                 Spacer(Modifier.weight(1f))
                 Text(
-                    text = item.price.toString(),
+                    text = motor.price.toString(),
                     style = MaterialTheme.typography.titleMedium
                 )
             }
-            Text(text = "Engine ${item.engine},Suspension Type: ${item.suspensionType}",
+            Text(text = "Engine ${motor.engine},Suspension Type: ${motor.suspensionType}",
                 style = MaterialTheme.typography.bodySmall)
-            Text(text = "Stock: ${item.quantity}",
+            Text(text = "Stock: ${motor.quantity}",
                 style = MaterialTheme.typography.bodyMedium)
         }
     }
